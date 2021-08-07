@@ -102,3 +102,39 @@ const set = new Set([
   { name: 'pear', color: 'green' },
   { name: 'pear', color: 'green' }
 ]);
+
+
+const number = 1;
+function foo() {
+  console.log(number);
+}
+function bar(fn) {
+  const number = 2;
+  fn();
+}
+bar(foo); // 1
+
+/* ----------------------------------------------*/
+
+function createCounter() {
+  let counter = 0;
+  const increment = () => {
+    counter++;
+  };
+  const getCount = () => {
+    return counter;
+  };
+  return {
+    // increment: increment,
+    // getCount: getCount
+    increment,
+    getCount
+  };
+}
+const counter = createCounter();
+counter.increment();
+console.log(counter.getCount());
+
+
+/* ----------------------------------------------*/
+(function () { })()

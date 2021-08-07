@@ -782,7 +782,7 @@ checkscope()(); // ??
 
 ```js
 class Person {}
-class Employee extends person {}
+class Employee extends Person {}
 class Developer extends Employee {}
 const james = new Employee();
 const mason = new Developer();
