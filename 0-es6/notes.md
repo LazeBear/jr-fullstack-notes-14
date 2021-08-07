@@ -793,8 +793,6 @@ mason.__proto__ === Employee.prototype;
 mason.__proto__ === james.__proto__;
 mason.__proto__ === james.__proto__.prototype;
 Developer.prototype.__proto__ === Employee.prototype;
-Employee.__proto__ === Person.prototype;
-Person.__proto__ === Employee.__proto__;
 ```
 
 Quiz questions references
