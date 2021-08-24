@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express(); // application
+// app.use(m1);
 app.use(express.json()); // convert json body to js object and assign it to req.body;
 // middleware
 
@@ -38,9 +39,55 @@ app.put('/students/:id/classes/:classId/desk', (req, res) => {
 });
 app.delete('/students/:id', (req, res) => {});
 
+// error handler
+
 // 3000, 4200, 8080, 9000
 // 3000, 8080
 // 3001, 3002, 3030
 app.listen(3000, () => {
   console.log('server listening at port 3000');
 });
+
+// function m1(req, res, next) {
+//   if () {
+//     return next();
+//   }
+//   res.send();
+// }
+
+// function m1(req, res, next) {
+//   if () {
+//     return res.send();
+//   }
+//   return next();
+// }
+
+// function rh(req, res) {
+//   res.json();
+// }
+
+// function() {
+//   return;
+//   const a = "abc";
+// }
+
+// next("token not valid");
+
+// next(new Error(""));
+
+// class ValidationError extends Error {}
+// next(new ValidationError());
+
+// function errorHandler(error, req, res, next) {
+//   if (error instanceof ValidationError) {
+//     return res.json();
+//   }
+//   next();
+// }
+
+// function m1(req, res, next) {
+//   if () {
+//     return next("xxxx");
+//   }
+//   return next();
+// }
