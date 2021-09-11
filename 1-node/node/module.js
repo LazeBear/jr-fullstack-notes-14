@@ -1,7 +1,7 @@
 const moduleA = { exports: {} };
 const moduleB = { exports: {} };
 (function (module) {
-  const msg = "this is my secret message";
+  const msg = 'this is my secret message';
   function getMsg() {
     return msg;
   }
