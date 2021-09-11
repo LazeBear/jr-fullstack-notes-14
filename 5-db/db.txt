@@ -1,0 +1,33 @@
+SQL Non-SQL
+
+SQL structured query language
+
+MySQL
+SQLite
+Postgres QL
+
+
+non(no) SQL
+not only sql
+
+mongodb
+dynamodb
+redis
+
+document-oriented -> mongodb, firebase
+key-value -> redis
+graph-oriented -> neo4j
+column-family -> cassandra
+
+BSON -> binary json
+
+[{_id: xxx, name: xxx},{_id: yyy, name: xxx, username: xxx}]
+
+
+operator
+query operator
+update operator
+projection operator
+
+nested document
+
