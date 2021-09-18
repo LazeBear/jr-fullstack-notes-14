@@ -3,25 +3,25 @@ function fetchData(url, cb) {
 }
 
 // callback hell
-fetchData("http://example.com", (data1) => {
+fetchData('http://example.com', (data1) => {
   // logic for process data1
-  fetchData("http://example1.com", (data2) => {
+  fetchData('http://example1.com', (data2) => {
     // logic for process data1
-    fetchData("http://example2.com", (data3) => {
+    fetchData('http://example2.com', (data3) => {
       // logic for process data1
       // callbackfunction();
     });
   });
-})
+});
 
 // Promise
 /**
  * 三种状态
  * pending fulfilled(resolved) rejected
- * 
+ *
  * 状态变化 pending -> fulfilled, pending -> rejected
  * 变化不可逆
- * 
+ *
  * .then, .catch
  * then 获取resolved的结果 (.then接受一个callback， 这个callback返回的也是一个Promise)
  * catch 获取错误信息 (.catch接受一个callback， 这个callback返回的也是一个Promise)
@@ -31,30 +31,33 @@ fetchData("http://example.com", (data1) => {
 
 function fetchFakeData(url) {
   return new Promise((res, rej) => {
-    setTimeout(()=>res(url), 1000);  
-  })
+    setTimeout(() => res(url), 1000);
+  });
 }
 
 let isLoading = true;
-fetchFakeData("http://example.com")
-.then(data1 => {
-  // some logic here
-  return fetchFakeData("http://fake.com");
-  // return Promise.resolve(undefined);
-}).then(data2 => {
-  // some logic here
-  return fetchFakeData("http://data.com");
-}).then(data3 => {
-  // logic here
-}).catch(error => console.log(error)).finally(() => {
-  isLoading = false;
-})
+fetchFakeData('http://example.com')
+  .then((data1) => {
+    // some logic here
+    return fetchFakeData('http://fake.com');
+    // return Promise.resolve(undefined);
+  })
+  .then((data2) => {
+    // some logic here
+    return fetchFakeData('http://data.com');
+  })
+  .then((data3) => {
+    // logic here
+  })
+  .catch((error) => console.log(error))
+  .finally(() => {
+    isLoading = false;
+  });
 
 // 异步 = 非阻塞 = 不等待
 // 同步 = 阻塞 = 等待
 
 // electron
-
 
 // 宏任务，微任务
 // 宏任务 -> setTimeout, ajax call, DOM events

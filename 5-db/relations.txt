@@ -1,0 +1,84 @@
+Student Course
+S1,S2   C1,C2
+
+1-1
+S1 -> C1
+S2 -> C2
+C1 -> S1
+C2 -> S2
+
+1 to M
+S1 -> C1
+S2 -> C1
+C1 -> S1,S2
+C2 -> 
+
+
+M to N
+S1 -> C1,C2
+S2 -> C1,C2
+C1 -> S1,S2
+C2 -> S1,S2
+
+
+M vs N, embed
+
+[
+  {
+    _id: "S1",
+    name: "student1",
+    courses: [
+      {
+        _id: "C1",
+        code: "COURSE11",
+      },
+      {
+        _id: "C2",
+        code: "COURSE2",
+      }
+    ]
+  },
+  {
+    {
+    _id: "S2",
+    name: "student2",
+    courses: [
+      {
+        _id: "C1",
+        code: "COURSE11",
+      },
+      {
+        _id: "C2",
+        code: "COURSE2",
+      }
+    ]
+  }
+]
+
+
+
+
+
+student
+{
+  _id: "S1",
+  addresses: [
+    {
+      _id: ObjectId("a1"),
+      city: "brisbane"
+    },
+    ObjectId("a2")
+  ]
+}
+
+
+
+
+
+
+
+ERD
+entity relation diagram
+1 - 0,M
+1- 1,M
+1-1
