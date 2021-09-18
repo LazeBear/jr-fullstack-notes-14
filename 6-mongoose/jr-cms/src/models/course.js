@@ -19,6 +19,12 @@ const schema = new mongoose.Schema(
       type: Date,
       select: false,
     },
+    students: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Student',
+      },
+    ],
   },
   {
     timestamps: true,
