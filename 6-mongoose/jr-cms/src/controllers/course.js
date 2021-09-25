@@ -1,4 +1,5 @@
 const Course = require('../models/course');
+const Student = require('../models/student');
 const Joi = require('joi');
 
 async function getAllCourses(req, res) {
@@ -22,6 +23,11 @@ async function addCourse(req, res) {
     allowUnknown: true,
     stripUnknown: true,
   });
+
+  const existingCourse = await Course.findById(code).exec();
+  if (existingCourse) {
+    return res.sendStatus(409);
+  }
 
   const course = new Course({
     name,
@@ -60,6 +66,14 @@ async function deleteCourseById(req, res) {
   if (!course) {
     return res.sendStatus(404);
   }
+  await Student.updateMany(
+    { courses: course._id },
+    {
+      $pull: {
+        courses: course._id,
+      },
+    }
+  ).exec();
   return res.sendStatus(204);
 }
 

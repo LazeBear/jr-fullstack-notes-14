@@ -1,0 +1,18 @@
+加密 -> encrypt
+解密 -> decrypt
+哈希 -> hash
+
+A -> X encrypt
+X -> A decrypt
+
+A -> x hash
+x !-> A
+
+A -> x
+A -> x
+
+salt
+加盐
+
+hash(A + salt1) -> salt1 + X
+hash(A + salt2) -> salt2 + Y

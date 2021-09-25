@@ -1,0 +1,9 @@
+unit test - jest, jasmine, mocha
+integration test
+E2E test (end to end test) - selenium, cypress
+
+expect value, result value
+mock, spy
+
+black box test
+white box test
