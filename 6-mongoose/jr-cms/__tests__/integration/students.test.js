@@ -1,6 +1,6 @@
 const supertest = require('supertest');
 const mongoose = require('mongoose');
-const Student = require('../../src/models/Student');
+const Student = require('../../src/models/student');
 const app = require('../../src/app');
 const { generateToken } = require('../../src/utils/jwt');
 
