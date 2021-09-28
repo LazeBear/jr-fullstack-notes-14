@@ -20,13 +20,14 @@
 // };
 
 const authGuard = require('../../../src/middleware/authGuard');
-// const { generateToken } = require('../../../src/utils/jwt');
+const { validateToken } = require('../../../src/utils/jwt');
 
-jest.mock('../../../src/utils/jwt', () => {
-  return {
-    validateToken: jest.fn().mockImplementation((token) => token),
-  };
-});
+jest.mock('../../../src/utils/jwt');
+// jest.mock('../../../src/utils/jwt', () => {
+//   return {
+//     validateToken: jest.fn().mockImplementation((token) => token),
+//   };
+// });
 
 describe('The auth guard middleware', () => {
   it('should return 401 if token is invalid', () => {
@@ -74,7 +75,10 @@ describe('The auth guard middleware', () => {
 
     const next = jest.fn();
 
+    validateToken.mockImplementation((token) => token);
+
     authGuard(req, res, next);
+    expect(validateToken).toHaveBeenCalledWith(token);
     expect(req.user).toBeDefined();
     expect(next).toHaveBeenCalled();
   });
